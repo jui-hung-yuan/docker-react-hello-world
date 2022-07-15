@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jhyuan02/docker-react-hello-world -f Dockerfile.dev2 .
+
+script:
+  - docker run -e CI=true jhyuan02/docker-react-hello-world npm run test
